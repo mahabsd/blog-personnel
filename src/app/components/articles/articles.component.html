@@ -1,0 +1,99 @@
+<div class="wrapper">
+
+    <div class="page-header page-header-xs" data-parallax="true"
+        style="background-image: url('./assets/img/fabio-mangione.jpg');">
+        <div class="filter"></div>
+    </div>
+    <div class="section profile-content">
+        <div class="container">
+            <div class="owner">
+                <div class="avatar">
+                    <img src="./assets/img/faces/joe-gardner-2.jpg" alt="Circle Image"
+                        class="img-circle img-no-padding img-responsive">
+                </div>
+  
+            </div>
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                    <ngb-tabset [justify]="'center'">
+                    </ngb-tabset>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row offset-3" *ngIf="admin">
+            <form action="">
+                <div class="tim-title">
+                    <h3>Article title</h3>
+                    <input type="text" placeholder="title" class="form-control" name="titre"
+                        [(ngModel)]="article.titre">
+                </div>
+                <div class="tim-title">
+                    <h3>Picture</h3>
+                    <div class="form-group">
+                        <input type="file" id="avatar" name="img" placeholder="image Product" class="form-control"
+                            [(ngModel)]="img">
+                        <p id="demo4"></p>
+                    </div>
+                </div>
+                <div class="tim-title">
+                    <h3>Description</h3>
+                    <input type="text" placeholder="Description" class="form-control" name="contenu"
+                        [(ngModel)]="article.contenu">
+                </div>
+                <div class="tim-title">
+                    <h3>Datepicker</h3>
+                </div>
+                <div class="row">
+                    <div class='col-sm-6'>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <div class="input-group date" [ngClass]="{'input-group-focus':focus===true}">
+                                    <input class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker
+                                        #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus=true"
+                                        (blur)="focus=false" name="date" [(ngModel)]="article.date" />
+                                    <div class="input-group-append">
+                                        <span class="glyphicon glyphicon-calendar input-group-text">
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-outline-danger btn-round" placement="right"
+                    ngbTooltip="update article" (click)='update(article)'>
+                    update your article
+                </button>
+                
+                <button type="button" class="btn btn-outline-danger btn-round" placement="right"
+                    ngbTooltip="delete article" (click)='delete()'>
+                    delete your article
+                </button>
+
+            </form>
+        </div>
+        <div class="row offset-1" *ngIf="show">
+            <div class="col">
+                <div class="typography-line">
+                    <h3>
+                        <span class="note">{{article.date.month}} - {{article.date.day}} - {{article.date.year }}</span>
+                        {{article.titre}}
+                    </h3>
+                </div>
+                <div class="col-md-8 mr-auto ml-auto ">
+                    <img [src]="article.image" class="img-rounded img-responsive" alt="">
+                </div>
+                <div class="typography-line mt-5">
+                    <p>
+                        {{article.contenu}}
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

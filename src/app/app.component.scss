@@ -1,0 +1,21 @@
+.content-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 2rem 1rem;
+    min-height: 50vh;
+  }
+  
+  .content-text {
+    text-align: center;
+    margin: 0;
+  }
+  
+  .image-link {
+    display: block;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 50vh;
+  }
