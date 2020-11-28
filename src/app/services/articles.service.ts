@@ -19,8 +19,8 @@ export class ArticlesService {
   }
   updateArticle(i, article) {
     const articles = JSON.parse(localStorage.getItem("articles")) || [];
-    articles.splice(i, 1, article.value);
-    localStorage.setItem('users',JSON.stringify(articles ));
+    articles.splice(i, 1, article);
+    localStorage.setItem('articles',JSON.stringify(articles ));
 
   }
   deleteArticle(i){

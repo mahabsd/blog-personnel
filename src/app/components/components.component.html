@@ -262,11 +262,11 @@
                  -->
                  <div class="col-md-5 mr-auto ml-auto"  *ngFor = "let article of articles ; let i = index ">
 
-                    <img [src]="article.image" class="img-rounded img-responsive" alt="">
+                    <img [src]="article.image" class="img-rounded img-responsive" alt="" [routerLink]="['/home/article', i]">
                     <div>
-                        <a href="" class="btn btn-link btn-danger" [routerLink]="['/home/article', i]">   {{article.titre}}</a>
+                        <a href="" class="btn btn-link btn-danger" [routerLink]="['/home/article', i]"  class="text-center">  <h3>{{article.titre}}</h3> </a>
                         <div class="typography-line">
-                                <span class="note">{{article.date.month}} - {{article.date.day}} - {{article.date.year }}</span>
+                                <span class="note"  class="text-center">{{article.date.month}} - {{article.date.day}} - {{article.date.year }}</span>
                         </div>
                         <span class="text-center" id="meta-views-count">22928 Views</span>
                         <span class="text-center" id="meta-comment-count"><a href="#">289

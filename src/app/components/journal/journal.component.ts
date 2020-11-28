@@ -29,12 +29,11 @@ img
     })
   }
   add() {
-    //  this.article.image = this.journal.image
-    // this.article.title = this.journal.titre
-    // this.article.time = this.journal.date;
-    // this.article.description = this.journal.contenu
+
     const x = this.journal.image.slice(12);
     this.journal.image = "./assets/img/" + x;
+    console.log("artcile apres lajout" +this.journal.image);
+
     this.img =  this.journal.image
     console.log(this.journal.image);
     this.articleService.addArticle(this.journal)

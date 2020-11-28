@@ -40,7 +40,7 @@ export class ArticlesComponent implements OnInit {
     var i = this.id
     const x = this.img.slice(12);
     this.article.image = "./assets/img/" + x;
-    this.img =  this.article.image
+   // this.img =  this.article.image
     console.log(this.article.image);
     this.myService.updateArticle(i, article);
    // this.route.navigateByUrl("/child2");
