@@ -276,7 +276,7 @@
 
             </div>
             <button type="button" class="btn btn-outline-danger btn-round" placement="right"
-            ngbTooltip="add new article" (click) = "addJournal()">
+            ngbTooltip="add new article" (click) = "addJournal()" *ngIf = "isAuthenticated" >
             add new article
         </button>
 
@@ -382,7 +382,7 @@
                             <img src="./assets/img/examples/landing-page.JPG" alt="Rounded Image" class="img-rounded img-responsive" style="width: 100%">
                             <a [routerLink]="['/landing']" class="btn btn-outline-neutral btn-round">Landing Page</a>
                         </a>
-                    </div> -->
+                    </div> 
 
                         <div class="col-md-12 text-center" routerLinkActive="active">
                             <a [routerLink]="['/user-profile']">
@@ -392,7 +392,7 @@
                                     Page</a>
                             </a>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <div class="section">

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticlesService } from 'app/services/articles.service';
+import { GuardserviceService } from 'app/services/guardservice.service';
 
 @Component({
   selector: 'app-articles',
@@ -16,8 +17,12 @@ export class ArticlesComponent implements OnInit {
     date: '',
     contenu: '',
   }
+  isAuthenticated
   id = this.router.snapshot.paramMap.get('index');
-  constructor(private router: ActivatedRoute,  private route:Router, private myService : ArticlesService) { }
+  constructor(private router: ActivatedRoute, private route: Router, private myService: ArticlesService, private AuthServices: GuardserviceService) {
+    this.isAuthenticated = AuthServices.isAuthenticated();
+    console.log('this.isAuthenticated returns :' + this.isAuthenticated);
+   }
   show = true;
   admin = true;
   img;

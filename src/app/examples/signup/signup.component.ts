@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormService } from 'app/services/form.service';
+import { GuardserviceService } from 'app/services/guardservice.service';
 
 @Component({
     selector: 'app-signup',
@@ -12,7 +13,7 @@ export class SignupComponent implements OnInit {
     focus;
     focus1;
     updated = false;
-    constructor(private myService: FormService) { }
+    constructor(private myService: FormService, private guardService : GuardserviceService ) { }
     profile = {
         userName: '',
         email: '',
@@ -21,12 +22,15 @@ export class SignupComponent implements OnInit {
         title: ''
     }
     ngOnInit() {
-        this.profile = this.myService.getProfile()
+
+        this.profile =  JSON.parse(localStorage.getItem("loggeduser")) || [];
+
         console.log(this.profile);
     }
 
     update(user) {
-        this.myService.updateProfile(user)
+        var i = this.guardService.getIndex()
+        this.myService.updateProfile(i, user)
         this.updated = true
        // this.route.navigateByUrl("/child2");
       }

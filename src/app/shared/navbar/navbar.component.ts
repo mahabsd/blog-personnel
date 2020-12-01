@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { GuardserviceService } from 'app/services/guardservice.service';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-navbar',
@@ -10,9 +11,14 @@ import { GuardserviceService } from 'app/services/guardservice.service';
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
+    isAuthenticated 
 
     constructor(public location: Location, private element : ElementRef,  private AuthServices : GuardserviceService ) {
         this.sidebarVisible = false;
+        this.isAuthenticated = AuthServices.isAuthenticated();
+        console.log('this.isLoggedIn returns :'+this.isAuthenticated);
+        
+
     }
 
     ngOnInit() {

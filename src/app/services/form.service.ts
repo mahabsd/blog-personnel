@@ -18,7 +18,7 @@ export class FormService {
   }
   getProfile() {
 
-    return JSON.parse(localStorage.getItem("profile")) || [];
+    return JSON.parse(localStorage.getItem("profiles")) || [];
   }
   getProfileIntro() {
 
@@ -34,13 +34,21 @@ export class FormService {
   // window.location.reload();
 
   // };
-  updateProfile( user) {
-    const profile = JSON.parse(localStorage.getItem("profile")) || [];
-    localStorage.setItem('profile',JSON.stringify(user));
+  updateProfile(i, user) {
+    // const profile = JSON.parse(localStorage.getItem("profile")) || [];
+    // localStorage.setItem('profile',JSON.stringify(user));
   //  this.profile = profile
   const profileIntro = JSON.parse(localStorage.getItem("profileIntro")) || [];
     localStorage.setItem('profileIntro', JSON.stringify(user));
-  
+
+   
+      const profiles = JSON.parse(localStorage.getItem("profiles")) || [];
+      console.log(profiles);
+      profiles.splice(i, 1, user);
+      localStorage.setItem('profiles', JSON.stringify(profiles));
+
+
+
   }
 
 

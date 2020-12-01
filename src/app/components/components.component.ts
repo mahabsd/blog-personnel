@@ -37,8 +37,14 @@ export class ComponentsComponent implements OnInit {
     getProfileIntro;
     articles = []
     article;
+    isAuthenticated;
     id = this.router.snapshot.paramMap.get('index');
-    constructor(private renderer: Renderer2, private AuthServices: GuardserviceService, private rou : Router,  private router: ActivatedRoute,  private formService: FormService, private articleService : ArticlesService,  private route: ActivatedRoute) {}
+    constructor(private renderer: Renderer2, private AuthServices: GuardserviceService, private rou: Router, private router: ActivatedRoute, private formService: FormService,
+        private articleService: ArticlesService, private route: ActivatedRoute) {
+            this.isAuthenticated = AuthServices.isAuthenticated();
+        console.log('this.isAuthenticated returns :' + this.isAuthenticated);
+        
+         }
     isWeekend(date: NgbDateStruct) {
         const d = new Date(date.year, date.month - 1, date.day);
         return d.getDay() === 0 || d.getDay() === 6;
@@ -93,13 +99,8 @@ export class ComponentsComponent implements OnInit {
 
     submitregister() {
     console.log(this.profile);
-    
-    this.submited = true;
-    if (this.profile.invalid) {
-      return;
-    }
     this.AuthServices.register(this.profile);
- //   this.route.navigateByUrl("/Signup");
+    this.rou.navigateByUrl("/user-profile");
     
   }
 

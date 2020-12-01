@@ -23,7 +23,7 @@
     </div>
     <div class="container-fluid">
         <div class="row offset-3" *ngIf="admin">
-            <form action="">
+            <form action="" *ngIf = "isAuthenticated">
                 <div class="tim-title">
                     <h3>Article title</h3>
                     <input type="text" placeholder="title" class="form-control" name="titre"
