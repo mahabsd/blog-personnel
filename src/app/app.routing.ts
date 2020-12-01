@@ -6,8 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { ComponentsComponent } from './components/components.component';
 import { ProfileComponent } from './examples/profile/profile.component';
 import { SignupComponent } from './examples/signup/signup.component';
-import { LandingComponent } from './examples/landing/landing.component';
-import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { ArticlesComponent } from "./components/articles/articles.component";
 import { JournalComponent } from "./components/journal/journal.component";
 import { GuardserviceService } from './services/guardservice.service';
@@ -23,8 +21,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'landing', component: LandingComponent },
-  { path: 'nucleoicons', component: NucleoiconsComponent },
   { path: 'home/article/:index', component: ArticlesComponent },
   {
     path: 'journal', component: JournalComponent,
