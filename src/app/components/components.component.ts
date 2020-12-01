@@ -67,13 +67,13 @@ export class ComponentsComponent implements OnInit {
         }
         this.profile = {
             userName: '',
-            email: '',
-            password:'' ,
-            description: '',
-            title: ''
+            email:  '',
+            password: '',
+            description:'',
+            title:  ''
         }
         
-        this.getProfileIntro = this.formService.getProfile()
+        this.getProfileIntro = this.formService.getProfileIntro()
 
 
         this.article = new FormGroup({
@@ -98,19 +98,15 @@ export class ComponentsComponent implements OnInit {
 
 
     submitregister() {
+        
     console.log(this.profile);
     this.AuthServices.register(this.profile);
     this.rou.navigateByUrl("/user-profile");
     
   }
 
-
 //** -----------------------journale ------------------- */
-    viewArticle(art) {
-        // this.articleService.addArticle( art)
-    // this.route.navigateByUrl("/journal");
-
-    }
+  
 
     addJournal() {
       this.rou.navigateByUrl("/journal");
@@ -124,5 +120,10 @@ export class ComponentsComponent implements OnInit {
         console.log("hiiii");
        ///feha fazet l i
     
+    }
+    i = 0;
+    followersNumber(){
+    this.i += 1 
+    }
 }
-}
+

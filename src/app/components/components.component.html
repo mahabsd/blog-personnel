@@ -41,7 +41,7 @@
                         class="img-circle img-no-padding img-responsive">
                 </div>
                 <div class="name">
-                    <h4 class="title"> {{getProfileIntro.name}}<br /></h4>
+                    <h4 class="title"> {{getProfileIntro.userName}}<br /></h4>
                     <h6 class="description">{{getProfileIntro.title}}</h6>
                 </div>
             </div>
@@ -105,9 +105,9 @@
                             </ngb-tab>-->
                         <ngb-tab title="Follows">
                             <ng-template ngbTabContent>
-                                <h3 class="text-muted">Not following anyone yet :(</h3>
+                                <h3 class="text-muted">{{i}} followers</h3>
                                 <br>
-                                <button class="btn btn-warning btn-round">follow</button>
+                                <button class="btn btn-warning btn-round" (click) = "followersNumber()">follow</button>
                             </ng-template>
                         </ngb-tab>
                     </ngb-tabset>
@@ -268,9 +268,9 @@
                         <div class="typography-line">
                                 <span class="note"  class="text-center">{{article.date.month}} - {{article.date.day}} - {{article.date.year }}</span>
                         </div>
-                        <span class="text-center" id="meta-views-count">22928 Views</span>
+                        <!-- <span class="text-center" id="meta-views-count">22928 Views</span>
                         <span class="text-center" id="meta-comment-count"><a href="#">289
-                                Comments</a></span>
+                                Comments</a></span> -->
                     </div>
                 </div> 
 
@@ -367,8 +367,8 @@
                                 </div>
                             </div>
                             <div class="col text-center" routerLinkActive="active">
-                                <a [routerLink]="['/signup']" class="btn btn-outline-neutral btn-round btn-lg">Log
-                                    in</a>
+                                <a [routerLink]="['/signup']" class="btn btn-outline-neutral btn-round btn-lg"> update your profile
+                                    </a>
                             </div>
                         </div>
                     </div>
